@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>PEKIN-PAK-INTERNATIONAL LLC</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #F5F0E8; color: #1A1A1A; }
+        
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: #0A2E1A;
+            padding: 12px 16px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid #D4C5A0;
+        }
+        .navbar .logo {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+        .navbar .logo span { color: #D4C5A0; }
+        .navbar .logo .pk {
+            background: #D4C5A0;
+            color: #0A2E1A;
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-right: 6px;
+            font-size: 0.9rem;
+            font-weight: 900;
+        }
+        .navbar .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+        .navbar .nav-links a {
+            color: #FFFFFF;
+            text-decoration: none;
+            margin-left: 8px;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        .navbar .nav-links a:hover { color: #D4C5A0; background: rgba(212,197,160,0.1); }
+        .navbar .nav-links a.active { color: #D4C5A0; }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(rgba(10, 46, 26, 0.70), rgba(10, 46, 26, 0.85)), 
+                        url('https://as2.ftcdn.net/jpg/04/02/39/87/1000_F_402398790_k3L190ASfWQqrem9f4CNLr8csArUE0dp.webp') center/cover no-repeat;
+            color: #FFFFFF;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 3px solid #D4C5A0;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero .hero-content {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+        .hero h1 { 
+            font-size: 2.5rem; 
+            font-weight: 800; 
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+        .hero .highlight { color: #D4C5A0; }
+        .hero p {
+            font-size: 1.1rem !important;
+            margin: 4px 0 0 0;
+        }
+
+        /* ===== SECTION ===== */
+        .section { padding: 40px 16px; }
+        .section-light { background: #FFFFFF; }
+        
+        .section h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .section h2.dark { color: #0A2E1A; }
+        .section .underline {
+            width: 50px;
+            height: 3px;
+            background: #D4C5A0;
+            margin: 8px auto 20px;
+            border-radius: 2px;
+        }
+
+        /* ===== WHY CHOOSE US ===== */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        @media (min-width: 600px) {
+            .why-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        .why-grid .item i {
+            font-size: 2rem;
+            color: #D4C5A0;
+        }
+        .why-grid .item h4 { margin: 8px 0 4px; color: #0A2E1A; font-size: 0.95rem; }
+        .why-grid .item p { color: #4A5568; font-size: 0.8rem; }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #0A2E1A;
+            color: #FFFFFF;
+            padding: 30px 16px;
+            border-top: 3px solid #D4C5A0;
+        }
+        .footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media (min-width: 600px) {
+            .footer .container { grid-template-columns: repeat(3, 1fr); }
+        }
+        .footer .container h5 { color: #D4C5A0; margin-bottom: 10px; font-size: 0.95rem; }
+        .footer .container p { opacity: 0.8; line-height: 1.6; font-size: 0.8rem; }
+        .footer .container a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin: 3px 0;
+            transition: 0.3s;
+            font-size: 0.8rem;
+        }
+        .footer .container a:hover { color: #D4C5A0; }
+        .footer .bottom {
+            text-align: center;
+            padding-top: 15px;
+            margin-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+            font-size: 0.7rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .navbar { padding: 10px 12px; }
+            .navbar .logo { font-size: 0.75rem; }
+            .navbar .nav-links a { font-size: 0.65rem; margin-left: 4px; padding: 3px 6px; }
+            .hero h1 { font-size: 1.6rem; }
+            .hero { padding: 40px 15px; min-height: 300px; }
+            .hero p { font-size: 0.85rem !important; }
+            .section h2 { font-size: 1.3rem; }
+            .why-grid { gap: 10px; }
+            .why-grid .item i { font-size: 1.5rem; }
+            .why-grid .item h4 { font-size: 0.8rem; }
+            .why-grid .item p { font-size: 0.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="logo">
+            <span class="pk">PK</span>
+            PEKIN-PAK-<span>INTERNATIONAL</span> LLC
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="machines.html">Machines</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>PEKIN-PAK-INTERNATIONAL <span class="highlight">LLC</span></h1>
+            <p style="font-size: 1.3rem; font-weight: 600; margin: 4px 0 0 0; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+                Beijing Representative Office
+            </p>
+            <p style="font-size: 1.1rem; font-weight: 400; margin: 4px 0 0 0; letter-spacing: 1px; opacity: 0.9;">
+                巴基斯坦皮金巴克国际有限公司北京代表处
+            </p>
+            <p style="font-size: 0.9rem; margin: 4px 0 0 0; opacity: 0.8; font-weight: 300; letter-spacing: 1px;">
+                (Import Export &amp; General Traders Commission Agent)
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== WHY CHOOSE US ===== -->
+    <section class="section section-light">
+        <h2 class="dark">Why Choose Us</h2>
+        <div class="underline"></div>
+        <div class="why-grid">
+            <div class="item">
+                <i class="fas fa-medal"></i>
+                <h4>Premium Quality</h4>
+                <p>Top-grade machinery from leading manufacturers</p>
+            </div>
+            <div class="item">
+                <i class="fas fa-handshake"></i>
+                <h4>Trusted Partner</h4>
+                <p>Reliable service and support for all clients</p>
+            </div>
+            <div class="item">
+                <i class="fas fa-globe-asia"></i>
+                <h4>Global Reach</h4>
+                <p>Serving customers worldwide with excellence</p>
+            </div>
+            <div class="item">
+                <i class="fas fa-headset"></i>
+                <h4>24/7 Support</h4>
+                <p>Dedicated team for your assistance</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div>
+                <h5>🏗️ PEKIN-PAK-INTERNATIONAL LLC</h5>
+                <p>巴基斯坦皮金巴克国际有限公司北京代表处</p>
+                <p>北京市朝阳区康家沟145号</p>
+                
+            </div>
+            <div>
+                <h5>📞 Contact</h5>
+                
+                <p>📱 +86-13439872786</p>
+                <p>✉️ pipigroup.cn@hotmail.com</p>
+                
+            </div>
+            <div>
+                <h5>🔗 Quick Links</h5>
+                <a href="index.html">Home</a>
+                <a href="machines.html">Machines</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <div class="bottom">&copy; 2026 PEKIN-PAK-INTERNATIONAL LLC. All rights reserved.</div>
+    </footer>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+</body>
+</html>
