@@ -105,6 +105,30 @@
             margin: 10px 0 20px;
             font-size: 0.95rem;
         }
+
+        /* ===== ENQUIRY FORM ===== */
+        .enquiry-form {
+            margin-top: 15px;
+            padding: 20px;
+            background: #F5F0E8;
+            border-radius: 12px;
+        }
+        .enquiry-form h4 { color: #0A2E1A; margin-bottom: 10px; }
+        .enquiry-form .form-group { margin-bottom: 10px; }
+        .enquiry-form input, .enquiry-form textarea {
+            width: 100%;
+            padding: 8px 12px;
+            border: 2px solid #E8E0D6;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            outline: none;
+            font-family: inherit;
+        }
+        .enquiry-form input:focus, .enquiry-form textarea:focus {
+            border-color: #D4C5A0;
+            box-shadow: 0 0 0 3px rgba(212,197,160,0.2);
+        }
+        .enquiry-form textarea { min-height: 60px; resize: vertical; }
         .btn-enquire {
             background: #D4C5A0;
             color: #0A2E1A;
@@ -249,7 +273,11 @@
                 { id: 4, model: "CAT 966 GC", category: "Wheel Loader", price: "$198,000", 
                   image: "https://via.placeholder.com/600x400/3A6A4A/D4C5A0?text=CAT+966+GC", 
                   specs: "Engine: CAT C9.3, Power: 240HP, Bucket: 4.5m³", 
-                  desc: "High-capacity loader.", available: true }
+                  desc: "High-capacity loader.", available: true },
+                { id: 5, model: "CAT D8T", category: "Tracked Dozer", price: "$265,000", 
+                  image: "https://via.placeholder.com/600x400/4A7A5A/D4C5A0?text=CAT+D8T", 
+                  specs: "Engine: CAT C15, Power: 305HP, Blade Capacity: 8.5m³", 
+                  desc: "Large dozer for major earthmoving projects.", available: true }
             ];
         }
 
@@ -328,9 +356,27 @@
                                 <strong>📝 Description:</strong><br />
                                 ${machine.desc}
                             </div>
-                            <button class="btn-enquire" onclick="alert('✅ Enquiry sent! We will contact you soon.')">
-                                📧 Enquire Now
-                            </button>
+                            
+                            <!-- ===== ENQUIRY FORM - Formspree ID: xvznenwy ===== -->
+                            <div class="enquiry-form">
+                                <h4>📧 Enquire About This Machine</h4>
+                                <form action="https://formspree.io/f/xvznenwy" method="POST">
+                                    <input type="hidden" name="machine" value="${machine.model}" />
+                                    <div class="form-group">
+                                        <input type="text" name="name" placeholder="Your Name" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="email" placeholder="Your Email" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="phone" placeholder="Your Phone Number" />
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="message" placeholder="Your Message...">I am interested in ${machine.model}</textarea>
+                                    </div>
+                                    <button type="submit" class="btn-enquire">📧 Send Enquiry</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 `;
