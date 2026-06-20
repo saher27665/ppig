@@ -357,10 +357,10 @@
                                 ${machine.desc}
                             </div>
                             
-                            <!-- ===== ENQUIRY FORM - Formspree ID: xvznenwy ===== -->
+                            <!-- ===== ENQUIRY FORM ===== -->
                             <div class="enquiry-form">
                                 <h4>📧 Enquire About This Machine</h4>
-                                <form action="https://formspree.io/f/xvznenwy" method="POST">
+                                <form id="enquiryForm" action="https://formspree.io/f/xvznenwy" method="POST" onsubmit="return handleFormSubmit(event)">
                                     <input type="hidden" name="machine" value="${machine.model}" />
                                     <div class="form-group">
                                         <input type="text" name="name" placeholder="Your Name" required />
@@ -381,6 +381,36 @@
                     </div>
                 `;
             });
+        }
+
+        // ===== HANDLE FORM SUBMIT =====
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const form = document.getElementById('enquiryForm');
+            const formData = new FormData(form);
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('✅ Your enquiry has been sent! We will contact you soon.');
+                    form.reset();
+                    window.location.href = 'machines.html';
+                } else {
+                    alert('❌ Something went wrong. Please try again.');
+                }
+            })
+            .catch(error => {
+                alert('❌ Network error. Please try again.');
+            });
+            
+            return false;
         }
 
         document.addEventListener('DOMContentLoaded', loadDetail);
